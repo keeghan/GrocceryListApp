@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Groccery List</string>
+    <string name="add">add New</string>
+    <string name="text_hint">new item</string>
+    <string name="update_item">update</string>
+    <string name="delete_item">Delete</string>
+</resources>
