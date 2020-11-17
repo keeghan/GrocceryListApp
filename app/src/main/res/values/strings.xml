@@ -1,7 +1,26 @@
 <resources>
     <string name="app_name">Groccery List</string>
-    <string name="add">add New</string>
+    <string name="clear_list">clear list</string>
     <string name="text_hint">new item</string>
     <string name="update_item">update</string>
     <string name="delete_item">Delete</string>
+    <string name="title_activity_main">GroceryList</string>
+
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="add_grocery_item">add Grocery Item</string>
+    <string name="placeholderPrice">10</string>
+    <string name="placeholderAmount">10</string>
+    <string name="placeholderName">inkate borger</string>
+    <string name="item_name">Item name</string>
+    <string name="price">price</string>
+    <string name="add_grocery">ADD</string>
+    <string name="update_btn">UPDATE</string>
 </resources>
