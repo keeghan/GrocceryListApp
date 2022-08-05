@@ -40,7 +40,7 @@ public class GroceryAdapter extends RecyclerView.Adapter<GroceryAdapter.GroceryH
         GroceryItem currentItem = groceryItems.get(position);
         holder.name.setText(currentItem.getName());
         holder.amount.setText(String.format(Locale.getDefault(), "%d", currentItem.getAmount()));
-        holder.price.setText(String.format(Locale.getDefault(), "%.2f", currentItem.getPrice()));
+        holder.price.setText(String.format(Locale.getDefault(), "%.1f", currentItem.getPrice()));
     }
 
     @Override

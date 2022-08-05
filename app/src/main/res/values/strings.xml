@@ -20,7 +20,14 @@
     <string name="placeholderAmount">10</string>
     <string name="placeholderName">inkate borger</string>
     <string name="item_name">Item name</string>
-    <string name="price">price</string>
+    <string name="price">Price</string>
     <string name="add_grocery">ADD</string>
     <string name="update_btn">UPDATE</string>
+    <string name="currency">0cedis</string>
+    <string name="snackBar_text">Grocery deleted</string>
+    <string name="actionRestoreItem">Restored</string>
+    <string name="actionUndoDeletion">Undo</string>
+    <string name="grocery">Grocery</string>
+    <string name="amount">Amount</string>
+
 </resources>

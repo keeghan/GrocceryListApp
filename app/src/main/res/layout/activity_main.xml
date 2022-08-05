@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -32,12 +33,12 @@
         app:srcCompat="@drawable/ic_action_add" />
 
     <TextView
-        android:textSize="20sp"
         android:id="@+id/txt_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_margin"
-        android:text="0cedis" />
+        android:text="@string/currency"
+        android:textSize="20sp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

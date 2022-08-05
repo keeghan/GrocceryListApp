@@ -22,7 +22,7 @@ public interface GroceryItemDao {
     void delete(GroceryItem groceryItem);
 
 
-    @Query("SELECT SUM(price) FROM GROCERY_TABLE")
+    @Query("SELECT SUM(price*amount) FROM GROCERY_TABLE")
     LiveData<Float> getPriceSum();
 
     @Query("SELECT * FROM GROCERY_TABLE")

@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.groceryListApp.DatabaseResources.GroceryItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     GroceryAdapter groceryAdapter;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Float aFloat) {
                 if (aFloat != null) {
-                    String si = aFloat.toString() + " Cedis";
+                    String si = String.format(Locale.getDefault(), "Total: GHS " + "%.1f", aFloat);
                     priceSumTxt.setText(si);
                 }
             }
@@ -74,10 +75,23 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
 
+            //made recyclerView.viewHolder final (error check)
             @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+
+                final GroceryItem deletedItem = groceryAdapter.getGroceryItemAt(viewHolder.getAdapterPosition());
                 mainViewModel.delete(groceryAdapter.getGroceryItemAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(MainActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
+
+                Snackbar snackBar = Snackbar.make(findViewById(R.id.coordinator_layout), R.string.snackBar_text, Snackbar.LENGTH_LONG);
+                snackBar.setAction(R.string.actionUndoDeletion, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mainViewModel.addGrocery(deletedItem);
+                        //   Toast.makeText(MainActivity.this, R.string.actionRestoreItem, Toast.LENGTH_SHORT).show();
+                        Snackbar snackBar1 = Snackbar.make(findViewById(R.id.coordinator_layout), R.string.actionRestoreItem, Snackbar.LENGTH_LONG);
+                        snackBar1.show();
+                    }
+                }).show();
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerView);
@@ -125,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.clear_Grocery){
+        if (item.getItemId() == R.id.clear_Grocery) {
             mainViewModel.clearList();
         }
         return super.onOptionsItemSelected(item);
